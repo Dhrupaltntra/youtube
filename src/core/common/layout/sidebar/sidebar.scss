@@ -1,0 +1,20 @@
+.sidebar_main{
+  padding: 20px;
+  .side_menu{
+    display: flex;
+    align-items: center;
+    color: #0f0f0f;
+    padding: 10.5px 15px;
+    border-radius: 10px;
+
+    h4{
+      color: #0f0f0f;
+    }
+    &:hover, &.active{
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    h4{
+      margin: 0 0 0 10px;
+    }
+  }
+}

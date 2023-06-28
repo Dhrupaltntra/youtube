@@ -1,0 +1,1 @@
+export const getAllRecommendeVideo = (body) => `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=IN&videoCategoryId=${body?.id}&key=AIzaSyACp3-cFGCX9e7KVpvzIkNy-_BsJDhneL4`

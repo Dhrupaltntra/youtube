@@ -89,7 +89,7 @@ const useSingle = () => {
         return `Just Now`
         break
       default:
-        console.log('Just Now');
+        return 'Just Now'
     }
   }
 

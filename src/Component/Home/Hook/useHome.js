@@ -40,7 +40,6 @@ const useHome = () => {
     const allVideos = (value) => {
       setFillterValue(value)
     }
-    console.log('getVideos: ', getVideos);
 
   const getAllVideo = () => {
     setFillterValue(null)

@@ -34,11 +34,7 @@ const useLoginHook = () => {
   })
 
   const getAllUsersSuccessHandler = (response) =>{
-    console.log('userDetail', userDetail.email)
-    console.log('response: ', response);
-    console.log('Email: ', response);
     const isValueFound = response.filter(obj => obj.email === userDetail.email && obj.id === Number(userDetail.Password));
-    console.log(isValueFound);
     if(isValueFound.length > 0) {
       navigate('/')
     }
@@ -57,11 +53,8 @@ const useLoginHook = () => {
     })
   }
 
-  // process.env.REACT_APP_API_KEY
-  console.log('process.env.REACT_APP_API_KEY: ', process.env.REACT_APP_API_KEY);
-
   const app = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_API_KEY,
+    apiKey: 'AIzaSyBWVnZN3cDuAXJaGgOvjijTkb89fx4z4lI',
     authDomain: 'local-bf2f0.firebaseapp.com',
     projectId: "local-bf2f0",
     storageBucket: "local-bf2f0.appspot.com",

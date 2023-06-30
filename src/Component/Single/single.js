@@ -80,7 +80,6 @@ function SingleVideo() {
           <div className="comment mt-20">
             <TextArea placeholder="Add Comment" 
             onFocus={() => {
-              console.log('userDetail: ', userDetail)
               if(!userDetail?.name) return navigate('/login')
               setIsComment(true)}}
             onChange={handleChange}

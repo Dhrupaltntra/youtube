@@ -14,7 +14,8 @@ const useHome = () => {
   })
 
   const[activeIndex, setActiveIndex] = useState();
-  const[fillterValue, setFillterValue] = useState(null);
+  const[fillterValue, setFillterValue] = useState('all');
+  const [activeCategory, setActiveCategory] = useState(false)
 
   const [state, setState] = useState({
     videos: [],
@@ -22,7 +23,7 @@ const useHome = () => {
     titles : []
   })
 
-  const {videos, suggestions, titles} = state
+  const {videos, suggestions} = state
 
   const onMouseHover = (index, key) => {
     key ? setActiveIndex(index) : setActiveIndex(null);
@@ -42,13 +43,18 @@ const useHome = () => {
     }
 
   const getAllVideo = () => {
-    setFillterValue(null)
+    setFillterValue('all')
+  }
+
+  const handleCategorySelection = (id) =>{
+    setActiveCategory(id)
   }
 
   const getAllVideoTitle = () => new Set(videos?.map(item => item?.snippet?.categoryId))
 
   const renderVideos = () => {
-    let showVideos = fillterValue == null ? videos : videos?.filter(item => item?.snippet?.categoryId == fillterValue)
+    let showVideos = fillterValue == 'all' ? videos : videos?.filter(item => item?.snippet?.categoryId == fillterValue)
+    console.log('showVideos: ', showVideos);
     return showVideos?.map((item, index) => {
       let image_url = activeIndex !== index ? item?.snippet?.thumbnails?.high?.url : undefined;
       return(
@@ -77,8 +83,14 @@ const useHome = () => {
             ref={videoRef}
           >
           </ReactPlayer>
-          <h1>{item.title}</h1>
           </Link>
+          <div className='suggestion'>
+            <img src={item?.snippet?.thumbnails?.high?.url} />
+            <div className='suggestion_video_content'>
+              <h1>{item?.snippet?.description}</h1>
+              <p>{item?.snippet?.channelTitle}</p>
+              </div>
+          </div>
         </Col>
       )
     })
@@ -86,10 +98,10 @@ const useHome = () => {
 
   return [
     {
-      videos,suggestions
+      videos,suggestions,activeCategory,fillterValue
     },
     { 
-     renderVideos, getAllVideoTitle,allVideos,getAllVideo
+     renderVideos, getAllVideoTitle,allVideos,getAllVideo,handleCategorySelection
     }
   ]
 }

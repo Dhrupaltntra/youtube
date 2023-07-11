@@ -21,5 +21,9 @@ header {
       display: flex;
       align-items: center;
     }
+    &.center{
+      max-width: 500px;
+      width: 100%;
+    }
   }
 }

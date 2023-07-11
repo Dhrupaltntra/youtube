@@ -97,11 +97,11 @@ const useSingle = () => {
     if (views < 1000) {
       return views.toString();
     } else if (views < 100000) {
-      return (views / 1000).toFixed(2) + 'k';
+      return (views / 1000).toFixed(0) + 'k';
     } else if (views < 10000000) {
-      return (views / 100000).toFixed(2) + 'L';
+      return (views / 100000).toFixed(0) + 'L';
     } else {
-      return (views / 10000000).toFixed(2) + 'M';
+      return (views / 10000000).toFixed(0) + 'M';
     }
   }
 
